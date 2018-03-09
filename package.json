@@ -1,0 +1,32 @@
+{
+	"name": "higiene",
+	"description": "Starter kit for modern, hygienic web development",
+	"version": "0.0.1",
+	"main": "index.ts",
+	"author": "Mikael Vesavuori",
+	"license": "MIT",
+	"devDependencies": {
+		"@babel/core": "^7.0.0-beta.40",
+		"@babel/node": "^7.0.0-beta.40",
+		"@babel/preset-env": "^7.0.0-beta.40",
+		"@babel/preset-stage-0": "^7.0.0-beta.40",
+		"babel-loader": "^8.0.0-beta.0",
+		"husky": "latest",
+		"jest": "latest",
+		"ts-loader": "^4.0.0",
+		"typescript": "^2.7.2",
+		"webpack": "^4.0.0",
+		"webpack-cli": "^2.0.8",
+		"xo": "latest"
+	},
+	"scripts": {
+		"start": "test && yarn run dev",
+		"dev": "webpack --mode development --display-error-details --watch",
+		"clean": "rm -rf dist && mkdir dist",
+		"prebuild": "yarn clean && mkdir -p dist/assets/graphics/ && yarn run optimize:graphics",
+		"build": "webpack --mode production --display-error-details",
+		"test": "test",
+		"precommit": "test",
+		"prepush": "npm version patch"
+	}
+}
